@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    /* border: 1px solid black; */
+}
+
+h3,
+h4,
+h5 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-modal {
+    background-color: #fff;
+    width: 40%;
+    box-shadow: 2px 2px 10px rebeccapurple;
+}
+
+.my-modal header {
+    width: 100%;
+    background-color: rebeccapurple;
+    color: #fff;
+    padding: 1rem;
+}
+
+.my-modal section {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 14px;
+    padding: 1rem;
+}
+
+.my-modal footer {
+    width: 100%;
+    background-color: #665e9e;
+    color: #fff;
+    margin-top: 1rem;
+    padding: 0.2rem 0;
+    text-align: center;
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+.my-modal footer:hover {
+    background-color: rebeccapurple;
+    transform: scaleY(1.2);
+}
+
+nav {
+    background-color: #2d3436;
+    color: #fff;
+    width: 100%;
+}
+
+.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e5e5e5;
+    min-height: 20vh;
+    border-radius: 4px;
+}
+
+.inner-container {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.container .headers {
+    height: 7vh;
+}
+
+.container .headers #question-number,
+.timer div {
+    background-color: #d7feff;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #f0e7e7;
+}
+
+.question,
+.container .headers #question-number,
+.timer div,
+.option-container {
+    box-shadow: 3px 3px 10px #e5e5e5;
+}
+
+.question {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+.option-container {
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.option-container .col-md-12 {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #f0e7e7;
+    cursor: pointer;
+    transition: all 400ms;
+}
+
+.option-container .col-md-12:hover {
+    background-color: #c0d7d8;
+    border-radius: 3px;
+    transform: scale(1.01);
+}
+
+.option-number {
+    font-weight: 600;
+}
+
+.nextbtn-container .btn {
+    border-radius: 0;
+}
+
+.restart-btn {
+    border: none;
+    background-color: purple;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    box-shadow: 1px 1px purple;
+    transition: all 500ms;
+}
+
+.restart-btn:hover {
+    background-color: rebeccapurple;
+    transform: scale(1.02);
+}
+
+@media screen and (max-width:700px) {
+    .my-modal {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:572px) {
+    .container {
+        border: none;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .headers {
+        flex-direction: column;
+        margin-bottom: 7rem;
+    }
+    .timer {
+        margin-top: 1rem;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:260px) {
+    .question {
+        padding: 0.5rem 0.3rem;
+    }
+}

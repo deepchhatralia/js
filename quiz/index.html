@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <nav class="d-flex align-center p-2">
+        <h4>Quiz</h4>
+    </nav>
+
+
+    <div class="container" id="container">
+        <div class="inner-container">
+            <div class="headers d-flex align-items-center justify-content-between">
+                <h5 id="question-number">Question</h5>
+                <div class="timer d-flex align-items-center justify-content-center">
+                    <div class="box1">
+                        <h5>00</h5>
+                    </div>
+                    <div class="box2">
+                        <h5>00</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-4 question">
+                <h5></h5>
+            </div>
+
+
+            <hr>
+
+            <div class="row option-container my-4">
+                <div class="col-md-12"><span class="option-number">A.</span> <span class="quiz-option"></span></div>
+                <div class="col-md-12"><span class="option-number">B.</span> <span class="quiz-option"></span></div>
+                <div class="col-md-12"><span class="option-number">C.</span> <span class="quiz-option"></span></div>
+                <div class="col-md-12"><span class="option-number">D.</span> <span class="quiz-option"></span></div>
+            </div>
+
+            <div class="row nextbtn-container d-flex align-items-center mb-2">
+                <div class="col-md-1">
+                    <button class="btn btn-primary next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-container">
+        <div class="my-modal">
+            <header>
+                <h3>Welcome</h3>
+            </header>
+            <section>
+                <h6>This is the quiz app made using only HTML CSS and Javascript</h6>
+                <p>It will dynamically load the question->answers pair and upload them into the components.</p>
+            </section>
+            <footer>
+                <h3 id="start-btn">Start</h3>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
