@@ -1,0 +1,22 @@
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.btnn {
+    background-color: rebeccapurple;
+    color: #fff;
+    padding: 0.2rem 2rem !important;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
