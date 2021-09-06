@@ -5,9 +5,9 @@ const main = document.getElementById('main');
 
 btn.addEventListener('click', function(e) {
     e.preventDefault();
-    const value = search.value;
-
-    fetchWeather(value);
+    if(search.value !== ""){
+        fetchWeather(search.value);
+    }
 });
 
 async function fetchWeather(value) {
