@@ -14,7 +14,7 @@ let second = 0
 let clicked = 0
 
 setIcons()
-timer.innerHTML = '0' + minute + ' : ' + '10' + second
+timer.innerHTML = '0' + minute + ' : ' + '0' + second
 var timerr = setInterval(startTimer, 1000)
 
 
@@ -62,7 +62,7 @@ for (let i = 0; i < flipBoxInner.length; i++) {
                                 flipBoxInner[arr[j]].classList.remove('rotate-class')
                             }
                             arr = []
-                        }, 500);
+                        }, 100);
                     }
                 }
             }
