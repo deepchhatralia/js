@@ -11,6 +11,7 @@ let arr = []
 let score = 0
 let minute = 02
 let second = 0
+let clicked = 0
 
 setIcons()
 timer.innerHTML = '0' + minute + ' : ' + '0' + second
@@ -23,6 +24,7 @@ restart.addEventListener('click', () => {
 
 
 function startTimer() {
+    
     if (minute == '00' && second == '00') {
         modalContainer.style.transform = 'translateY(0%)'
         modall.innerHTML += '<h6>Timeup</h6>'
@@ -41,23 +43,27 @@ function startTimer() {
 
 for (let i = 0; i < flipBoxInner.length; i++) {
     flipBoxInner[i].addEventListener('click', () => {
-        if (!flipBoxInner[i].classList.contains('rotate-class')) {
+        clicked += 1
+        if(clicked > 2) clicked = 0
+        if(clicked === 1 || clicked === 2){
+            if (!flipBoxInner[i].classList.contains('rotate-class')) {
 
-            flipBoxInner[i].classList.add('rotate-class')
-            if (!arr.includes(i)) {
-                arr.push(i)
-            }
+                flipBoxInner[i].classList.add('rotate-class')
+                if (!arr.includes(i)) {
+                    arr.push(i)
+                }
 
-            if (arr.length == 2) {
-                if (flipBoxInner[arr[0]].innerHTML === flipBoxInner[arr[1]].innerHTML) {
-                    clearBox()
-                } else {
-                    setTimeout(() => {
-                        for (let j = 0; j < arr.length; j++) {
-                            flipBoxInner[arr[j]].classList.remove('rotate-class')
-                        }
-                        arr = []
-                    }, 500);
+                if (arr.length == 2) {
+                    if (flipBoxInner[arr[0]].innerHTML === flipBoxInner[arr[1]].innerHTML) {
+                        clearBox()
+                    } else {
+                        setTimeout(() => {
+                            for (let j = 0; j < arr.length; j++) {
+                                flipBoxInner[arr[j]].classList.remove('rotate-class')
+                            }
+                            arr = []
+                        }, 500);
+                    }
                 }
             }
         }
