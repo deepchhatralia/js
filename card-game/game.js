@@ -62,7 +62,7 @@ for (let i = 0; i < flipBoxInner.length; i++) {
                                 flipBoxInner[arr[j]].classList.remove('rotate-class')
                             }
                             arr = []
-                        }, 100);
+                        }, 300);
                     }
                 }
             }
