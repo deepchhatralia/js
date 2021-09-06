@@ -11,7 +11,7 @@ let arr = []
 let score = 0
 let minute = 02
 let second = 0
-let clicked = 0
+// let clicked = 0
 
 setIcons()
 timer.innerHTML = '0' + minute + ' : ' + '0' + second
@@ -43,9 +43,9 @@ function startTimer() {
 
 for (let i = 0; i < flipBoxInner.length; i++) {
     flipBoxInner[i].addEventListener('click', () => {
-        clicked += 1
-        if(clicked > 2) clicked = 0
-        if(clicked === 1 || clicked === 2){
+//         clicked += 1
+//         if(clicked > 2) clicked = 0
+//         if(clicked === 1 || clicked === 2){
             if (!flipBoxInner[i].classList.contains('rotate-class')) {
 
                 flipBoxInner[i].classList.add('rotate-class')
@@ -66,7 +66,7 @@ for (let i = 0; i < flipBoxInner.length; i++) {
                     }
                 }
             }
-        }
+//         }
     })
 }
 
