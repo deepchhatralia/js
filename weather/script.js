@@ -1,4 +1,4 @@
-console.log(window.location.pathname);
+console.log(window.location.pathname+"deep chhatralia");
 // const search = document.getElementById('search');
 // const btn = document.querySelector('.btn');
 // let result = document.getElementById('result');
