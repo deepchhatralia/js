@@ -28,38 +28,7 @@ const questions = [{
         answer: 0,
         options: ["body{color:red;}", "{body:color:red}", "body{color:red}", "body color red"]
     }
-    // ,{
-    //     id: 6,
-    //     question: "Which HTML attribute is used to define inline styles?",
-    //     answer: 3,
-    //     options: ["class", "id", "styles", "style"]
-    // },
-    // {
-    //     id: 7,
-    //     question: "Which HTML attribute is used to define inline styles?",
-    //     answer: 3,
-    //     options: ["class", "id", "styles", "style"]
-    // },
-    // {
-    //     id: 8,
-    //     question: "Which HTML attribute is used to define inline styles?",
-    //     answer: 3,
-    //     options: ["class", "id", "styles", "style"]
-    // },
-    // {
-    //     id: 9,
-    //     question: "Which HTML attribute is used to define inline styles?",
-    //     answer: 3,
-    //     options: ["class", "id", "styles", "style"]
-    // },
-    // {
-    //     id: 10,
-    //     question: "Which HTML attribute is used to define inline styles?",
-    //     answer: 3,
-    //     options: ["class", "id", "styles", "style"]
-    // }
 ]
-
 
 const mainContainer = document.getElementById('container')
 const quizQuestion = document.querySelector('.question h5')
@@ -82,6 +51,11 @@ let score = 0
 let second = 1
 let minutes = 0
 
+aysnc function loadApiQuestion(){
+        var x = await fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple");
+        x = await x.json();
+        console.log(x);
+}
 
 function loadQuestions() {
     quizQuestion.innerHTML = 'Q. ' + questions[count].question
@@ -115,7 +89,8 @@ function startTimer() {
 
 startBtn.addEventListener('click', () => {
     modalContainer.style.display = 'none'
-    loadQuestions()
+    loadApiQuestion();
+        //loadQuestions()
     myInterval = setInterval(startTimer, 1000);
 })
 
