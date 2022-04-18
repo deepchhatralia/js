@@ -1,33 +1,33 @@
-const questions = [{
-        id: 1,
-        question: "What is the full form of CSS",
-        answer: 0,
-        options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "None of these"]
-    },
-    {
-        id: 2,
-        question: "Where in an HTML document is the correct place to refer to an external style sheet?",
-        answer: 2,
-        options: ["div", "body", "head", "header"]
-    },
-    {
-        id: 3,
-        question: "Which HTML tag is used to define an internal style sheet?",
-        answer: 1,
-        options: ["script", "style", "link", "css"]
-    },
-    {
-        id: 4,
-        question: "Which HTML attribute is used to define inline styles?",
-        answer: 3,
-        options: ["class", "id", "styles", "style"]
-    },
-    {
-        id: 5,
-        question: "Which is the correct CSS syntax?",
-        answer: 0,
-        options: ["body{color:red;}", "{body:color:red}", "body{color:red}", "body color red"]
-    }
+let questions = [{
+    id: 1,
+    question: "What is the full form of CSS",
+    answer: 0,
+    options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "None of these"]
+},
+{
+    id: 2,
+    question: "Where in an HTML document is the correct place to refer to an external style sheet?",
+    answer: 2,
+    options: ["div", "body", "head", "header"]
+},
+{
+    id: 3,
+    question: "Which HTML tag is used to define an internal style sheet?",
+    answer: 1,
+    options: ["script", "style", "link", "css"]
+},
+{
+    id: 4,
+    question: "Which HTML attribute is used to define inline styles?",
+    answer: 3,
+    options: ["class", "id", "styles", "style"]
+},
+{
+    id: 5,
+    question: "Which is the correct CSS syntax?",
+    answer: 0,
+    options: ["body{color:red;}", "{body:color:red}", "body{color:red}", "body color red"]
+}
 ]
 
 const mainContainer = document.getElementById('container')
@@ -49,20 +49,43 @@ var myInterval
 const marksOfOneQuestion = 5
 let score = 0
 let second = 1
-let minutes = 0
+let minutes = 0;
 
-aysnc function loadApiQuestion(){
-        var x = await fetch("https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple");
-        x = await x.json();
-        console.log(x);
+
+async function loadApiQuestion(howManyQuestion, difficulty) {
+    var x = await fetch("https://opentdb.com/api.php?amount=" + howManyQuestion + "&category=18&difficulty=" + difficulty + "&type=multiple");
+    x = await x.json();
+    questions = [...x.results];
+    loadQuestions();
+    myInterval = setInterval(startTimer, 1000);
 }
 
 function loadQuestions() {
     quizQuestion.innerHTML = 'Q. ' + questions[count].question
-    questionNumber.innerHTML = `Question ${count + 1}`
+    questionNumber.innerHTML = `Question ${count + 1}`;
+    let optionSuffle = [...questions[count].incorrect_answers, questions[count].correct_answer];
+
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
+
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
+    optionSuffle = shuffle(optionSuffle);
+
+    questions[count]["correctOptionIndex"] = optionSuffle.indexOf(questions[count].correct_answer);
 
     for (let i = 0; i < quizOption.length; i++) {
-        quizOption[i].innerHTML = questions[count].options[i]
+        quizOption[i].innerHTML = optionSuffle[i]
         allOptions[i].style.backgroundColor = '#fff'
     }
 
@@ -89,15 +112,16 @@ function startTimer() {
 
 startBtn.addEventListener('click', () => {
     modalContainer.style.display = 'none'
-    loadApiQuestion();
-        //loadQuestions()
-    myInterval = setInterval(startTimer, 1000);
+    const howManyQuestion = document.getElementById("noOfQuestion").value;
+    const difficulty = document.getElementById("difficultyLevel").value;
+    loadApiQuestion(howManyQuestion, difficulty);
+    // loadQuestions();
 })
 
 nextBtn.addEventListener('click', () => {
     for (let i = 0; i < allOptions.length; i++) {
         if (allOptions[i].style.backgroundColor === 'rgb(223, 230, 233)') {
-            if (i === questions[count].answer) {
+            if (i === questions[count].correctOptionIndex) {
                 score += 5
             }
             if (nextBtn.innerHTML === 'Finish') {
@@ -105,7 +129,7 @@ nextBtn.addEventListener('click', () => {
                 mainContainer.classList.add('d-flex', 'align-items-center', 'justify-content-center', 'flex-column')
                 mainContainer.innerHTML = `
                 <div>
-                    <h3>You scored <b>${score}</b> out of <b>${questions.length * marksOfOneQuestion}</b> in ${minutes > 0 ? minutes + ' minutes and ': ''} ${second} seconds</h3>
+                    <h3>You scored <b>${score}</b> out of <b>${questions.length * marksOfOneQuestion}</b> in ${minutes > 0 ? minutes + ' minutes and ' : ''} ${second} seconds</h3>
                 </div>
                 <div class="mt-3 mb-2">
                     <button class="restart-btn">Restart</button>
