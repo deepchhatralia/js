@@ -18,7 +18,7 @@
 
 
     <nav class="d-flex align-center p-2">
-        <h4>Quiz</h4>
+        <h4>Quizz</h4>
     </nav>
 
 
@@ -65,8 +65,25 @@
                 <h3>Welcome</h3>
             </header>
             <section>
-                <h6>This is the quiz app made using only HTML CSS and Javascript</h6>
-                <p>It will dynamically load the question->answers pair and upload them into the components.</p>
+                <!-- <h6>This is the quiz app made using only HTML CSS and Javascript</h6>
+                <p>It will dynamically load the question->answers pair and upload them into the components.</p> -->
+                <div style="display: flex; margin-bottom: 20px;">
+                    <h4>Number of Questions : </h4>
+                    <select name="noOfQuestion" id="noOfQuestion">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div style="display: flex; margin-bottom: 20px;">
+                    <h4>Difficulty Level : </h4>
+                    <select id="difficultyLevel">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
             </section>
             <footer>
                 <h3 id="start-btn">Start</h3>
