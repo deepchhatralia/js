@@ -1,34 +1,4 @@
-let questions = [{
-    id: 1,
-    question: "What is the full form of CSS",
-    answer: 0,
-    options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "None of these"]
-},
-{
-    id: 2,
-    question: "Where in an HTML document is the correct place to refer to an external style sheet?",
-    answer: 2,
-    options: ["div", "body", "head", "header"]
-},
-{
-    id: 3,
-    question: "Which HTML tag is used to define an internal style sheet?",
-    answer: 1,
-    options: ["script", "style", "link", "css"]
-},
-{
-    id: 4,
-    question: "Which HTML attribute is used to define inline styles?",
-    answer: 3,
-    options: ["class", "id", "styles", "style"]
-},
-{
-    id: 5,
-    question: "Which is the correct CSS syntax?",
-    answer: 0,
-    options: ["body{color:red;}", "{body:color:red}", "body{color:red}", "body color red"]
-}
-]
+let questions = [];
 
 const mainContainer = document.getElementById('container')
 const quizQuestion = document.querySelector('.question h5')
